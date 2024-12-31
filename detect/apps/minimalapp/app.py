@@ -26,6 +26,7 @@ print(current_app.name)
 g.connection = "connection"
 print(g.connection)
 
+# hello world用のcontextのためコメントアウト
 # with app.test_request_context():  
 #   print(url_for("hello",name="takehiro1111"))
 
