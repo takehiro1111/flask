@@ -18,6 +18,20 @@ app.config.update(
     DEBUG=True
 )
 
+ctx=app.app_context()
+ctx.push()
+
+print(current_app.name)
+
+g.connection = "connection"
+print(g.connection)
+
+# with app.test_request_context():  
+#   print(url_for("hello",name="takehiro1111"))
+
+with app.test_request_context("/users?updated=true"):
+  print(request.args.get("updated"))
+
 ################################################
 # Hello World
 ################################################
@@ -93,17 +107,3 @@ def internal_server_error(e):
 
 if __name__ == "__main__":
     app.run(debug=True)
-    
-ctx=app.app_context()
-ctx.push()
-
-print(current_app.name)
-
-g.connection = "connection"
-print(g.connection)
-
-with app.test_request_context():  
-  print(url_for("hello",name="takehiro1111"))
-
-with app.test_request_context("/users?updated=true"):
-  print(request.args.get("updated"))
