@@ -2,10 +2,6 @@ from flask import Flask,render_template
 import views,app
 
 app = Flask(__name__)
-
-# @app.route('/')
-# def index():
-#   return render_template("crud/index.html")
   
 def create_app():
   # register_blueprint関数を用いて、viewsのcrudをアプリへ登録する。
