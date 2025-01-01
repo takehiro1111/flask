@@ -10,7 +10,9 @@ from flask import (
   current_app,g,
   redirect,
   request,
-  flash
+  flash,
+  make_response,
+  session
 )
 from flask_mail import Mail,Message
 import my_gmail_account
@@ -91,7 +93,19 @@ def index():
 ######################################################
 @app.get('/contact')
 def contact():
-  return render_template('contact.html')
+  # レスポンスオブジェクトを取得する。
+  response = make_response(render_template("contact.html"))
+  
+  # クッキーを設定する。
+  response.set_cookie("key_test", "takehiro1111")
+  
+  # セッションの設定
+  session["username"] = "ichiro"
+  
+  # レスポンスオブジェクトを返す
+  return response
+  
+  # return render_template('contact.html')
 
 @app.route('/contact/complete',
           methods=["GET","POST"])
