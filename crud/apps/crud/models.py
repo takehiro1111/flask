@@ -1,5 +1,5 @@
 from datetime import datetime
-from crud.apps.app import db
+from apps.app import db
 from werkzeug.security import generate_password_hash
 from flask_migrate import Migrate
 
