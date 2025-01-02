@@ -15,5 +15,9 @@ def index():
 
 @crud.route("/sql")
 def sql():
-  db.session.query(User).all()
+  db.session.query(User).paginate(
+    page=2,      # ページ番号
+    per_page=10,    # 1ページあたりの項目数
+    error_out=False # ページが存在しない場合のエラー制御
+  )
   return "コンソールログを確認してください"
