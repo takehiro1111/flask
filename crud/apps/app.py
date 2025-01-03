@@ -6,6 +6,7 @@ import sys
 from apps.extensions import db
 from apps.crud.models import User
 from flask_wtf.csrf import CSRFProtect
+from flask_login import LoginManager
 
 csrf = CSRFProtect()
 
@@ -19,17 +20,23 @@ flask_app = Flask(__name__)
 
 # # ORマッパーのインスタンス化
 # db = SQLAlchemy()
-    
+
+# loginmanagerをインスタンス化する。
+login_manager = LoginManager()
+# login_view属性に未ログイン時にリダイレクトするエンドポイントを指定する。
+login_manager.login_view = "auth.signup"
+# login_message属性にログイン後に表示するメッセージを指定する。
+login_manager.login_message = ""
 
 def create_app():
   
   flask_app.config.from_mapping(
-  SECRET_KEY="testtest",
-  SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'locals.sqlite'}",
-  SQLALCHEMY_TRACK_MODIFICATIONS=False,
-  SQLALCHEMY_ECHO = True,
-  WTF_CSRF_SECRET_KEY="testtest"
-)
+    SECRET_KEY="testtest",
+    SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'locals.sqlite'}",
+    SQLALCHEMY_TRACK_MODIFICATIONS=False,
+    SQLALCHEMY_ECHO = True,
+    WTF_CSRF_SECRET_KEY="testtest"
+  )
   csrf.init_app(flask_app)
   
   # SQLAlchemyのアプリの連携
@@ -59,6 +66,11 @@ def create_app():
       user.password = "flaskbook2"
       db.session.add(user)
       db.session.commit()
+  
+  # login_managerをアプリケーションと連携する。
+  login_manager.init_app(flask_app)
+  from apps.auth import views as auth_views
+  flask_app.register_blueprint(auth_views.auth,url_prefix="/auth")
   
   return flask_app
 
