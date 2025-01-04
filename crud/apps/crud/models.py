@@ -1,10 +1,11 @@
 from datetime import datetime
-from apps.app import db
-from werkzeug.security import generate_password_hash
+from apps.app import db,login_manager
+from werkzeug.security import generate_password_hash,check_password_hash
 from flask_migrate import Migrate
+from flask_login import UserMixin
 
 # db.Modelを継承するUserクラスの作成
-class User(db.Model):
+class User(db.Model,UserMixin):
   # テーブル名を定義する
   __tablename__ = "users"
   id = db.Column(db.Integer,primary_key = True)
@@ -23,3 +24,16 @@ class User(db.Model):
   @password.setter
   def password(self,password):
     self.password_hash = generate_password_hash(password)
+
+  # パスワードのチェック
+  def verify_password(self,password):
+    return check_password_hash(self.password_hash,password)
+
+  # メールアドレスに重複がないかチェックする。
+  def is_duplicate_email(self):
+    return User.query.filter_by(email=self.email).first() is not None
+
+# ログイン中のユーザー情報を取得する関数を作成する。
+@login_manager.user_loader
+def load_user(user_id):
+  return User.query.get(user_id)

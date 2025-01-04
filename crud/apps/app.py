@@ -3,10 +3,10 @@ from pathlib import Path
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 import sys
-from apps.extensions import db
+from apps.extensions import db,login_manager
 from apps.crud.models import User
 from flask_wtf.csrf import CSRFProtect
-from flask_login import LoginManager
+from apps.config import config
 
 csrf = CSRFProtect()
 
@@ -21,26 +21,29 @@ flask_app = Flask(__name__)
 # # ORマッパーのインスタンス化
 # db = SQLAlchemy()
 
-# loginmanagerをインスタンス化する。
-login_manager = LoginManager()
 # login_view属性に未ログイン時にリダイレクトするエンドポイントを指定する。
 login_manager.login_view = "auth.signup"
 # login_message属性にログイン後に表示するメッセージを指定する。
 login_manager.login_message = ""
 
-def create_app():
+def create_app(config_key="local"):
+
+  # config.pyで認証情報を管理するため、ベタで直接書かない。
+  # flask_app.config.from_mapping(
+  #   SECRET_KEY="testtest",
+  #   SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'locals.sqlite'}",
+  #   SQLALCHEMY_TRACK_MODIFICATIONS=False,
+  #   SQLALCHEMY_ECHO = True,
+  #   WTF_CSRF_SECRET_KEY="testtest"
+  # )
   
-  flask_app.config.from_mapping(
-    SECRET_KEY="testtest",
-    SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'locals.sqlite'}",
-    SQLALCHEMY_TRACK_MODIFICATIONS=False,
-    SQLALCHEMY_ECHO = True,
-    WTF_CSRF_SECRET_KEY="testtest"
-  )
-  csrf.init_app(flask_app)
+  # config_keyに合致するconfig.pyのclassを読み込む。
+  flask_app.config.from_object(config[config_key])
   
   # SQLAlchemyのアプリの連携
   db.init_app(flask_app)
+  
+  csrf.init_app(flask_app)
   
   # Migrateとアプリの連携
   Migrate(flask_app,db)
@@ -74,9 +77,8 @@ def create_app():
   
   return flask_app
 
-
 # グローバルで設定。
-app = create_app()
+app = create_app(config_key = "local")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    flask_app.run(debug=True)
