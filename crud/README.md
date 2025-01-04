@@ -31,6 +31,7 @@ source venv/bin/activate  # Unix/Linux
 ```bash
 # requirements.txt の生成（必要な場合）
 # メインの依存関係管理は Pipenv で行う
+pip install pipenv
 pipenv lock -r > requirements.txt
 ```
 
