@@ -9,7 +9,7 @@ class BaseConfig(object):
   
 # BaseConfigクラスを継承してLocalConfigクラスを作成する。
 class LocalConfig(BaseConfig):
-  SQLALCHEMY_DATABASE_URI = f"sqlite:///{basedir / 'locals.sqlite'}"
+  SQLALCHEMY_DATABASE_URI = f"sqlite:///{basedir / 'local.sqlite'}"
   SECRET_KEY="testtest"
   SQLALCHEMY_TRACK_MODIFICATIONS=False
   SQLALCHEMY_ECHO = True
@@ -17,7 +17,7 @@ class LocalConfig(BaseConfig):
   
 # BaseConfigクラスを継承してTestingConfigクラスを作成する。
 class TestingConfig(BaseConfig):
-  SQLALCHEMY_DATABASE_URI = f"sqlite:///{basedir / 'locals.sqlite'}"
+  SQLALCHEMY_DATABASE_URI = f"sqlite:///{basedir / 'local.sqlite'}"
   WTF_CSRF_ENABLED = False
   SECRET_KEY="testtest"
   SQLALCHEMY_TRACK_MODIFICATIONS=False

@@ -31,7 +31,7 @@ def create_app(config_key="local"):
   # config.pyで認証情報を管理するため、ベタで直接書かない。
   # flask_app.config.from_mapping(
   #   SECRET_KEY="testtest",
-  #   SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'locals.sqlite'}",
+  #   SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'local.sqlite'}",
   #   SQLALCHEMY_TRACK_MODIFICATIONS=False,
   #   SQLALCHEMY_ECHO = True,
   #   WTF_CSRF_SECRET_KEY="testtest"
@@ -62,13 +62,19 @@ def create_app(config_key="local"):
     # db.session.add(user)
     # db.session.commit()
     
-    user = db.session.query(User).filter_by(id=1).first()
-    if user:
-      user.username = "user2"
-      user.email = "fffffffsddsddsfa@gmail.com"
-      user.password = "flaskbook2"
-      db.session.add(user)
-      db.session.commit()
+    if config_key == "local":
+      try:
+        user = db.session.query(User).filter_by(id=1).first()
+        if user:
+          user.username = "user2"
+          user.email = "fffffffsddsddsfa@gmail.com"
+          user.password = "flaskbook2"
+          db.session.add(user)
+          db.session.commit()
+      except Exception as e:
+        # テーブルが存在しない場合などのエラーをキャッチ
+        print(f"Database operation failed: {e}")
+        pass
   
   # login_managerをアプリケーションと連携する。
   login_manager.init_app(flask_app)

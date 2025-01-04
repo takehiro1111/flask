@@ -4,3 +4,4 @@
 **/key.py
 **/.env
 **/my_gmail_account.py
+**/*.sqlite
