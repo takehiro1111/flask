@@ -42,6 +42,14 @@ pip install -r requirements.txt
 
 #### データベースの初期化
 ```bash
+flask db init
+```
+
+```bash
+flask db migrate -m "create users table"
+```
+
+```bash
 flask db upgrade
 ```
 
