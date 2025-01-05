@@ -81,6 +81,13 @@ def create_app(config_key="local"):
   from apps.auth import views as auth_views
   flask_app.register_blueprint(auth_views.auth,url_prefix="/auth")
   
+  """
+  detectorパッケージ群
+  """
+  from apps.detector.views import detector_bp
+  # blue_printへの登録
+  flask_app.register_blueprint(detector_bp)
+  
   return flask_app
 
 # グローバルで設定。
