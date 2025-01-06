@@ -3,6 +3,8 @@ from apps.app import db,login_manager
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_migrate import Migrate
 from flask_login import UserMixin
+from apps.detector.models import UserImage
+
 
 # db.Modelを継承するUserクラスの作成
 class User(db.Model,UserMixin):
@@ -14,6 +16,10 @@ class User(db.Model,UserMixin):
   password_hash = db.Column(db.String)
   created_at = db.Column(db.DateTime,default=datetime.now)
   updated_at = db.Column(db.DateTime,default=datetime.now,onupdate = datetime.now)
+  
+  # backrefは「逆参照」を自動的に設定するため、片方のモデルでのみ定義すればもう片方(UserImage)では定義する必要がない。
+  # order_byを用いることでidを降順で取得する。
+  user_images = db.relationship("UserImage",backref="user",order_by="desc(UserImage.id)")
   
   # パスワードをセットするためのプロパティ
   @property
