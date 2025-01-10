@@ -6,6 +6,7 @@ basedir = Path(__file__).parent.parent
 class BaseConfig(object):
   SECRET_KEY = "hogehoge"
   WTF_CSRF_SECRET_KEY = "fugafuga"
+  UPLOAD_FOLDER = str(Path(basedir,"apps","images"))
   
 # BaseConfigクラスを継承してLocalConfigクラスを作成する。
 class LocalConfig(BaseConfig):
