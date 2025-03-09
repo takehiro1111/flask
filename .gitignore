@@ -5,3 +5,4 @@
 **/.env
 **/my_gmail_account.py
 **/*.sqlite
+**/*.db
