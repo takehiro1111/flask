@@ -6,10 +6,10 @@ authors = ["takehiro1111 <t.soccer.0916@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "3.14.3"
 flask = "2.3.3"
-sqlalchemy = "^2.0.36"
-flask-sqlalchemy = "^3.1.1"
+sqlalchemy = "2.0.36"
+flask-sqlalchemy = "3.1.1"
 
 
 [build-system]
