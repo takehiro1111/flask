@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "82ade196f0a0dfc8b245a4c1961635fbf123703183eb5fc4ae52c586f28e510f"
+            "sha256": "9afedff66dcdfe27054312c4e38f3776a4157581bd3d591d1c28dbec06526553"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,28 +26,28 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:8b0779431b349582f4d61b55a2858b943d5295f4b5de62e2d669fdbbcda96bd6",
-                "sha256:e09f91170b19e0ecd5e514321d99323be3e91a58dfa73fd58cf73b7b8b179c84"
+                "sha256:74f47051e3b741a0c1e64d57b891076c2c68f8d7b98aee36b044fab1849b4823",
+                "sha256:b598f1705f231f118a81abbfde0c5b52879b1b1997a1aba513f04d61e7b12cbd"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9'",
-            "version": "==1.42.56"
+            "version": "==1.42.57"
         },
         "botocore": {
             "hashes": [
-                "sha256:111089dea212438a5197e909e5b528e7c30fd8cbd02c8c7d469359b368929343",
-                "sha256:b1d7d3cf2fbe4cc1804a6567a051fc7141d21bcdcfde0336257b8dd2085272c2"
+                "sha256:0d26c09955e52ac5090d9cf9e218542df81670077049a606be7c3bd235208e67",
+                "sha256:51f94c602b687a70aa11d8bbea2b741b87b0aef7bddb43e5386247bf4311c479"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==1.42.56"
+            "version": "==1.42.57"
         },
         "certifi": {
             "hashes": [
-                "sha256:9943707519e4add1115f44c2bc244f782c0249876bf51b6599fee1ffbedd685c",
-                "sha256:ac726dd470482006e014ad384921ed6438c457018f4b3d204aea4281258b2120"
+                "sha256:027692e4402ad994f1c42e52a4997a9763c646b73e4096e4d5d6db8af1d6f0fa",
+                "sha256:e887ab5cee78ea814d3472169153c2d12cd43b14bd03329a39a9c6e2e80bfba7"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==2026.1.4"
+            "version": "==2026.2.25"
         },
         "charset-normalizer": {
             "hashes": [
