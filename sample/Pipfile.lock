@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5fb5adc6db8ea926c8a3581c1058ce0de6cecab03e3c1b7f3f9f408c080a8ffa"
+            "sha256": "6e1e4d6a13e7dece722db68497173f171d9239dd97f406085f86dd6c72a12b42"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,20 +26,20 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:37dac72f2921095378c0200caf07918d5e10a82b7c1f611abb70e44f69d0b962",
-                "sha256:5e967292d361482793471bd80fad1e714515b7401f65a0d5b4aa6ef9d009c030"
+                "sha256:27342e5d5f6170fcc8d1e21cdd939af2448d58ac56b08d494250eaad998e30c7",
+                "sha256:83918184d95967e4c6e9ed1e9a2f58250b291e6ea2cb847ab0825d52596b39e5"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==1.43.9"
+            "version": "==1.43.10"
         },
         "botocore": {
             "hashes": [
-                "sha256:93e91c7160678182860f5902ee4cfe6d643cac0d9ee84d3eb65becc9f4c00228",
-                "sha256:b9bdcd9c87fc552aad30006f00167d9ebb3480e1b06f1902bac5b2c41014fdab"
+                "sha256:2f4af585b41dbccdfc9f49677d7bd72d713a12ef89a1dc9c8538a927649498bf",
+                "sha256:8a0176d8c2f8bebe95d4f923a824a1ace04b02f360e220681c388e097f32c3b6"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==1.43.9"
+            "version": "==1.43.10"
         },
         "certifi": {
             "hashes": [
@@ -186,11 +186,11 @@
         },
         "click": {
             "hashes": [
-                "sha256:398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2",
-                "sha256:a2bf429bb3033c89fa4936ffb35d5cb471e3719e1f3c8a7c3fff0b8314305613"
+                "sha256:40c50b7c6c6adac2823d411041ec84f3f103f1b280d5e9ce0d7f998995832f81",
+                "sha256:638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==8.3.3"
+            "version": "==8.4.0"
         },
         "flask": {
             "hashes": [
