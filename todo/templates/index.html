@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% for todo in todos %}
+{% if not todo.done %}
+<a href="{{url_for('complete',index=todo.index)}}" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+  aria-current="true">
+  <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+  <!-- <img src='{{ url_for('static', filename='assets/img/icon.png') }}' alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0"> -->
+  <div class="d-flex gap-2 w-100 justify-content-between">
+    <div>
+      <h6 class="mb-0">{{todo.task}}</h6>
+      <p class="mb-0 opacity-75">{{todo.detail}}</p>
+    </div>
+    <small class="opacity-50 text-nowrap">{{todo.time}}</small>
+  </div>
+
+</a>
+{% endif %}
+{% endfor %}
+<br>
+<br>
+
+<a href="{{url_for('add')}}" class="btn btn-primary">タスク追加</a>
+{% endblock %}
