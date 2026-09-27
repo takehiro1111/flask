@@ -21,7 +21,7 @@ mako = "==1.4.3"
 markupsafe = "==3.0.3"
 sqlalchemy = "==2.1.1"
 typing-extensions = "==4.16.0"
-werkzeug = "==3.1.8"
+werkzeug = "==3.1.9"
 wtforms = "==3.2.2"
 
 [dev-packages]
