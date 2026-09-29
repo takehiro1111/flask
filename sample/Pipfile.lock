@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e8e47835f52a02b7d07715d4729df709aa12d20a9aba23cbec67df33ca6fd5c6"
+            "sha256": "c22c75fcec1489b8ed1a8fc4dab13b1fb12fa14d9b31832093935978b8396724"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,20 +26,20 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:524821052527f6446d249bf710847b032d9b12135e346c9751777a0a2811cf04",
-                "sha256:574796187eb4e4fcaaf5c1b88c1724a1ba5a95bc27aeae5573676178666acc71"
+                "sha256:d26ad9b8f6066e9be90c78c1f8f0cdd82e33e0a363a1ccc5ab01008b0e48c7fd",
+                "sha256:dc0c4b5c217fa38792d6b2e3c89b0d26220fd938dc173e48adab45d2d05e6977"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==1.43.103"
+            "version": "==1.43.104"
         },
         "botocore": {
             "hashes": [
-                "sha256:6a6a561a6de43845ae42bc7ff7e2c798742bfa277f5215398f9c15ed9b1bd67c",
-                "sha256:8c7f220e09f3b7ec99c59c716aa66cf6f5b2b57fd8731544054f3778aa744c6a"
+                "sha256:099f84876df9f6dc23a24b4d8c02da2d73c6949249761dd85585f735b825c182",
+                "sha256:a447978a815f8ac7ef2f4ba103b6a0c310e56536386974df769edb1326f3b208"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==1.43.103"
+            "version": "==1.43.104"
         },
         "certifi": {
             "hashes": [
@@ -423,11 +423,11 @@
         },
         "werkzeug": {
             "hashes": [
-                "sha256:63a77fb8892bf28ebc3178683445222aa500e48ebad5ec77b0ad80f8726b1f50",
-                "sha256:9bad61a4268dac112f1c5cd4630a56ede601b6ed420300677a869083d70a4c44"
+                "sha256:55ca7c70a75689be937aa27f8ff4b018f06ff4838fc73045560bf0f5a1291060",
+                "sha256:6392e50c78460ba618e5b21f08a71f59c99ce99cdc6cf6e3dd7e6ccca8754fab"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==3.1.8"
+            "version": "==3.1.9"
         }
     },
     "develop": {}
