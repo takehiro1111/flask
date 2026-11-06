@@ -1,6 +1,6 @@
 alembic==1.20.1
 blinker==1.9.0
-click==8.5.0
+click==8.5.1
 dnspython==2.9.2
 email_validator==2.3.0
 Flask==3.1.3
